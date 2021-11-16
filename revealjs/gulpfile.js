@@ -182,6 +182,9 @@ gulp.task('css-themes', () => gulp.src(['./css/theme/source/*.{sass,scss}'])
         .pipe(compileSass())
         .pipe(gulp.dest('./dist/theme')))
 
+//Task to copy theme-related assets (splash images, company logos etc.) to the dist/ folder
+gulp.task('css-theme-assets', () => gulp.src('./css/theme/source/assets/*.{png,jpg}').pipe(gulp.dest('./dist/theme/assets')))
+
 gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
     .pipe(compileSass())
     .pipe(autoprefixer())

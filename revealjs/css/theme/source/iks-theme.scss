@@ -1,0 +1,107 @@
+/**
+ * Specific theme for IKS for reveal.js.
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+
+
+$assetsPath: "./assets";
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+//$headingColor: #222;
+$headingColor: rgb(0,143,202);
+
+$mainFontSize: 42px;
+$mainFont: 'Segoe UI', Helvetica, sans-serif;
+$headingFont: 'Segoe UI', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+// Angepasste Bulletpoints für Listen
+
+li {
+    list-style-image: url(#{$assetsPath}/list-item-cropped.png);
+}
+
+
+// Listenpunkte 2. Ebene
+ul>ul>li {
+    list-style-image: none;
+    list-style-type: disc;
+}
+
+//Listenpunkte 3. Ebene
+ul>ul>ul>li {
+    list-style-image: none;
+    list-style-type: square;
+}
+
+// Listenpunkte 4. Ebene
+ul>ul>ul>ul>li {
+    list-style-image: none;
+    list-style-type: square;
+}
+
+
+// Splash-Bild auf jeder Slide
+div.reveal:after {
+    content: url(#{$assetsPath}/splash-background-cropped.png);
+    position: fixed;
+    bottom: 0.5em;
+    left: 0.5em;
+    font-size: 10px;
+    
+  }
+
+
+// Firmenlogo auf jeder Slide
+div.reveal:before{
+    content: url(#{$assetsPath}/iks-logo-cropped.png);
+    position: fixed;
+    top: 3.5em;
+    right: 3.5em;
+    font-size: 10px;
+}
+
+
+// Seitenzahlen in halber Größe, farblich weiß unterlegt & unten rechts
+.reveal .slide-number {
+    font-size: 0.5em;
+    right: 5em;
+    background-color: #fff;
+    color: $mainColor;
+}
+
