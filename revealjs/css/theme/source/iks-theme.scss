@@ -7,6 +7,7 @@
 // Default mixins and settings -----------------
 @import "../template/mixins";
 @import "../template/settings";
+@import "../template/theme";
 // ---------------------------------------------
 
 
@@ -50,8 +51,26 @@ $heading4Size: 1.0em;
 // ---------------------------------------------
 
 
-// Angepasste Bulletpoints für Listen
+//Agenda-Folien
 
+
+.agenda {
+    li:not(.active-topic) {
+    opacity: 0.25;
+    }
+}
+
+// Mehr-Spalten-Layout
+.multi-columns {
+    display: flex !important;
+    column-gap: 20px;
+    .column {
+        flex: 1;
+      }
+  }
+  
+
+// Angepasste Bulletpoints für Listen
 li {
     list-style-image: url(#{$assetsPath}/list-item-cropped.png);
 }
@@ -98,10 +117,20 @@ div.reveal:before{
 
 
 // Seitenzahlen in halber Größe, farblich weiß unterlegt & unten rechts
-.reveal .slide-number {
+.reveal {
+    blockquote {
+        font-size: 0.5em;
+        .quote-link {
+            display: block;
+            font-size: 0.66em;
+            text-align: right;
+        }
+    }
+    .slide-number {
     font-size: 0.5em;
     right: 5em;
     background-color: #fff;
     color: $mainColor;
+    }
 }
 
