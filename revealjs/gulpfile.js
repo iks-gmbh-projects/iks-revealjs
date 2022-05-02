@@ -126,6 +126,7 @@ gulp.task('plugins', () => {
         { name: 'RevealNotes', input: './plugin/notes/plugin.js', output: './plugin/notes/notes' },
         { name: 'RevealZoom', input: './plugin/zoom/plugin.js', output: './plugin/zoom/zoom' },
         { name: 'RevealMath', input: './plugin/math/plugin.js', output: './plugin/math/math' },
+        { name: 'slideChangeTracker', input: './plugin/slideChangeTracker/plugin.js', output: './plugin/slideChangeTracker/slidechangetracker' },
     ].map( plugin => {
         return rollup({
                 cache: cache[plugin.input],
@@ -135,7 +136,7 @@ gulp.task('plugins', () => {
                     commonjs(),
                     babel({
                         ...babelConfig,
-                        ignore: [/node_modules\/(?!(highlight\.js|marked)\/).*/],
+                        //ignore: [/node_modules\/(?!(highlight\.js|marked)\/).*/], // TODO: Warum klappt gulp plugins, wenn ich diese Zeile auskommentiere?!
                     }),
                     terser()
                 ]
