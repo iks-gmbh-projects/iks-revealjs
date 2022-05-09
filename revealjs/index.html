@@ -110,8 +110,8 @@
 				</code></pre>
 			</section>
 
-			
-			
+
+
 
 			<section>
 				<h2>Agenda-Folien</h2>
@@ -633,8 +633,10 @@ Reveal.on( 'customevent', function() {
 	<script src="plugin/search/search.js"></script>
 	<script src="plugin/markdown/markdown.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
-	<script src="plugin/slideChangeTracker/slidechangetracker.js"></script>
-	<script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aws-amplify/4.3.20/aws-amplify.min.js"></script>
+	<link rel="stylesheet" href="plugin/slideChangeTracker/style.css">
+	<script type="module">
+		import slideChangeTracker from "./plugin/slideChangeTracker/plugin.js"
 		//import slideChangeTracker from './plugin/slideChangeTracker/plugin.js'
 		// Also available as an ES module, see:
 		// https://revealjs.com/initialization/
@@ -646,8 +648,30 @@ Reveal.on( 'customevent', function() {
 			slideNumber: "c/t",
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, slideChangeTracker],
-			slideChangeTracker : {
-				AWSUrl: "https://hip46fqe3h.execute-api.eu-west-1.amazonaws.com/timestamps",
+			slideChangeTracker: {
+				Auth: {
+					mandatorySignIn: true,
+					region: "eu-central-1",
+					userPoolId: "eu-central-1_nAwSWW1wy",
+					userPoolWebClientId: "500qb0j9lbso7u6btkcjlfr330",
+					oauth: {
+						domain: "slideevents-login.auth.eu-central-1.amazoncognito.com",
+						scope: [
+							"phone",
+							"email",
+							"profile",
+							"openid",
+							"aws.cognito.signin.user.admin",
+						],
+						redirectSignIn:
+							"https://127.0.0.1:5500/vortrag-mlops/iks-revealjs/revealjs/index.html",
+						redirectSignOut:
+							"https://127.0.0.1:5500/vortrag-mlops/iks-revealjs/revealjs/index.html/signout",
+						responseType: "code",
+					},
+				},
+				api_gateway_url: "https://jb7lc0n57i.execute-api.eu-central-1.amazonaws.com/slideevents",
+				slide_title: "Reveal.js - Demo"
 			}
 		});
 

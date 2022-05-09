@@ -1,0 +1,14 @@
+.slidechange-track-button {
+    position: absolute;
+    bottom: 2.05em;
+    right: 2.05em;
+    font-size: 1.4em;
+    background: var(--r-link-color);
+    border: medium none;
+    color: white;
+    border-radius: 2px;
+}
+
+.slidechange-track-button:hover {
+    opacity: 0.75;
+}
