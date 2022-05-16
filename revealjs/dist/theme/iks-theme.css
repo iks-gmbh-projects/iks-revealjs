@@ -705,6 +705,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   opacity: 0.25;
 }
 
+.multi-columns {
+  display: flex !important;
+  column-gap: 20px;
+}
+.multi-columns .column {
+  flex: 1;
+}
+
 li {
   list-style-image: url(./assets/list-item-cropped.png);
 }
@@ -724,7 +732,7 @@ ul > ul > ul > ul > li {
   list-style-type: square;
 }
 
-div.reveal:after {
+div.slide-background:after {
   content: url(./assets/splash-background-cropped.png);
   position: fixed;
   bottom: 0.5em;
@@ -732,7 +740,7 @@ div.reveal:after {
   font-size: 10px;
 }
 
-div.reveal:before {
+div.slide-background:before {
   content: url(./assets/iks-logo-cropped.png);
   position: fixed;
   top: 3.5em;
@@ -753,13 +761,4 @@ div.reveal:before {
   right: 5em;
   background-color: #fff;
   color: #222;
-}
-
-.columns {
-  display: flex !important;
-  column-gap: 20px;
-}
-
-.columns .column {
-  flex: 1;
 }
